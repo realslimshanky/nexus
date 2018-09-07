@@ -18,7 +18,7 @@ class PostViewSet(mixins.ListModelMixin, mixins.CreateModelMixin,
     permission_classes = (IsAuthenticated, permissions.IsAdminOrAuthorOfPost)
 
     def get_serializer_class(self):
-        if self.action in ['approve', 'posted']:
+        if self.action in ('approve', 'posted'):
             return serializers.AdminPostSerializer
         return serializers.PostSerializer
 
